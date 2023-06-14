@@ -15,7 +15,7 @@ app.use("/api", userRouter)
 app.use("/api", townRouter)
 
 mongoose
-  .connect("mongodb://mongodatabase:27017/yachts", {
+  .connect("mongodb://45.12.75.52:27017/yachts", {
     useNewUrlParser: true,
   })
   .then(() => console.log("MongoDB Connected"))
@@ -23,6 +23,6 @@ mongoose
 
 app.use(cors())
 
-app.listen(4000, () => {
+app.listen(5050, () => {
   console.log("Server is running")
 })
