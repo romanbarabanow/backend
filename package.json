@@ -1,0 +1,14 @@
+{
+  "name": "backendYakhty",
+  "version": "1.0.0",
+  "description": "Backend for yachts website",
+  "main": "index.js",
+  "author": "Roman Barabanow<ketzalec@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "url": "https://github.com/romanbarabanow/backend-yachts.git"
+  }
+}
