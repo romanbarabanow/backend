@@ -34,7 +34,7 @@ const deleteTown = async (req, res) => {
   const isExist = await TownModel.findOne({ _id: id })
 
   if (isExist == null) {
-    res.json({ message: "Яхта не найдена" }).status(400)
+    res.json({ message: "Город не найден" }).status(400)
   } else {
     await TownModel.findOneAndDelete({ _id: id })
     res.json({ message: "Success" }).status(200)
