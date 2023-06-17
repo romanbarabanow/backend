@@ -1,4 +1,5 @@
 const TownModel = require("../models/TownModel")
+const YachtsModel = require("../models/YachtsModel")
 
 const createTown = async (req, res) => {
   const { name, country, services } = req.body
@@ -47,9 +48,38 @@ const getAllTowns = async (req, res) => {
   res.json(towns).status(200)
 }
 
+const getTownAndYachts = async (req, res) => {
+  const { id } = req.body
+
+  const town = await TownModel.findOne({ _id: id })
+
+  if (town == null) {
+    res.json({ message: "Город не найден" })
+  }
+  {
+    const yachtsArray = await YachtsModel.find({ town: town.name })
+
+    const yachts = []
+    yachtsArray.map(function (el) {
+      yachts.push({
+        spec: el.spec,
+        des: el.description,
+        id: el._id,
+      })
+    })
+    res.json({
+      data: {
+        yachts,
+        town,
+      },
+    })
+  }
+}
+
 module.exports = {
   createTown,
   editTown,
   deleteTown,
   getAllTowns,
+  getTownAndYachts,
 }
