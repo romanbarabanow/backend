@@ -12,6 +12,8 @@ mongoose
 const yachtsRouter = require("./routes/yachts.route")
 const userRouter = require("./routes/user.route")
 const townRouter = require("./routes/town.route")
+const serviceRouter = require("./routes/services.route")
+const abouteRouter = require("./routes/about.route")
 
 const app = express()
 
@@ -21,6 +23,8 @@ app.use(cors())
 app.use("/api", yachtsRouter)
 app.use("/api", userRouter)
 app.use("/api", townRouter)
+app.use("/api", serviceRouter)
+app.use("/api", abouteRouter)
 
 app.listen(4000, () => {
   console.log("Server is running")
