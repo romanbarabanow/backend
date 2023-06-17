@@ -64,6 +64,18 @@ const getYachtsbyTown = async (req, res) => {
   }
 }
 
+const getYachtsbyId = async (req, res) => {
+  const { id } = req.body
+
+  const yacht = await YachtsModel.findOne({ _id: id })
+
+  if (yacht == null) {
+    res.json({ message: "Яхта не найдена" }).status(200)
+  } else {
+    res.json(yacht).status(200)
+  }
+}
+
 const deleteYachts = async (req, res) => {
   const { id } = req.body
 
@@ -82,4 +94,5 @@ module.exports = {
   getAllYachts,
   getYachtsbyTown,
   deleteYachts,
+  getYachtsbyId,
 }
