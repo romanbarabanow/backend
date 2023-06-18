@@ -15,7 +15,7 @@ const createFAQ = async (req, res) => {
 }
 
 const getFAQ = async (req, res) => {
-  const { town } = req.body
+  const { town } = req.query
 
   const FAQ = await FAQModel.find({ town })
 

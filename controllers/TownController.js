@@ -135,7 +135,7 @@ const getAllInfo = async (req, res) => {
 }
 
 const getTownByName = async (req, res) => {
-  const { town } = req.body
+  const { town } = req.query
 
   const townw = await TownModel.findOne({ name: town })
 

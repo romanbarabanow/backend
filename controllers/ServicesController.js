@@ -15,7 +15,7 @@ const changeService = async (req, res) => {
 }
 
 const getService = async (req, res) => {
-  const { name, town } = req.body
+  const { name, town } = req.query
 
   const service = await ServicesModel.findOne({ name, town })
 

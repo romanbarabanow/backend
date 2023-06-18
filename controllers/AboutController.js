@@ -14,7 +14,7 @@ const changeAbout = async (req, res) => {
 }
 
 const getAbout = async (req, res) => {
-  const { town } = req.body
+  const { town } = req.query
 
   const about = await AboutModel.findOne({ town })
 

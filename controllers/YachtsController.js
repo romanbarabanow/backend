@@ -65,7 +65,7 @@ const getYachtsbyTown = async (req, res) => {
 }
 
 const getYachtsbyId = async (req, res) => {
-  const { id } = req.body
+  const { id } = req.query
 
   const yacht = await YachtsModel.findOne({ _id: id })
 
