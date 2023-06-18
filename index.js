@@ -14,6 +14,7 @@ const userRouter = require("./routes/user.route")
 const townRouter = require("./routes/town.route")
 const serviceRouter = require("./routes/services.route")
 const abouteRouter = require("./routes/about.route")
+const faqRouter = require("./routes/faq.route")
 
 const app = express()
 
@@ -25,6 +26,7 @@ app.use("/api", userRouter)
 app.use("/api", townRouter)
 app.use("/api", serviceRouter)
 app.use("/api", abouteRouter)
+app.use("/api", faqRouter)
 
 app.listen(4000, () => {
   console.log("Server is running")
