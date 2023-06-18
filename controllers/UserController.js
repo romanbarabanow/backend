@@ -1,4 +1,5 @@
 const UserModel = require("../models/UserModel")
+const jwt = require("jsonwebtoken")
 
 const createAdmin = async (req, res) => {
   const { email, password } = req.body
@@ -24,7 +25,14 @@ const loginAdmin = async (req, res) => {
   const user = await UserModel.findOne({ email, password })
 
   if (user) {
-    res.json(user).status(200)
+    const token = jwt.sign(
+      {
+        email: user.email,
+        password: user.password,
+      },
+      "bogdanloh123337228"
+    )
+    res.json({ token: token }).status(200)
   } else {
     res.json({ message: "Error" }).status(400)
   }

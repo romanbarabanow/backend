@@ -103,15 +103,14 @@ const getAllTowns = async (req, res) => {
   res.json(towns).status(200)
 }
 
-const getTownAndYachts = async (req, res) => {
-  const { id } = req.body
+const getAllInfo = async (req, res) => {
+  const { id } = req.query
 
   const town = await TownModel.findOne({ _id: id })
 
-  if (town == null) {
+  if (town === null) {
     res.json({ message: "Город не найден" })
-  }
-  {
+  } else {
     const about = await AboutModel.findOne({ town: town.name })
     const services = await ServicesModel.find({ town: town.name })
     const yachtsArray = await YachtsModel.find({ town: town.name })
@@ -135,9 +134,22 @@ const getTownAndYachts = async (req, res) => {
   }
 }
 
+const getTownByName = async (req, res) => {
+  const { town } = req.body
+
+  const townw = await TownModel.findOne({ name: town })
+
+  if (townw == null) {
+    res.json({ message: "Город не найден" }).status(400)
+  } else {
+    res.json(townw).status(200)
+  }
+}
+
 module.exports = {
   createTown,
   deleteTown,
   getAllTowns,
-  getTownAndYachts,
+  getAllInfo,
+  getTownByName,
 }
