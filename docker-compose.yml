@@ -1,11 +1,11 @@
 version: "3.8"
 
 services:
-  backend:
-    container_name: backend
+  backend-yachts:
+    container_name: backend-yacht
     restart: always
     build: ./
     ports:
-      - "4000:4000"
+      - "4001:4001"
     volumes:
       - .:/app

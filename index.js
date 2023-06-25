@@ -28,6 +28,6 @@ app.use("/api", serviceRouter)
 app.use("/api", abouteRouter)
 app.use("/api", faqRouter)
 
-app.listen(4000, () => {
+app.listen(4001, () => {
   console.log("Server is running")
 })
