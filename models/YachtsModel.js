@@ -3,6 +3,7 @@ const { Schema, model } = require("mongoose")
 const Yachts = new Schema({
   image: { type: String, required: true },
   town: { type: String, required: true },
+  price: { type: String, required: true },
   spec: {
     model: { type: String, required: true },
     name: { type: String, required: true },

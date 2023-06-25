@@ -19,11 +19,13 @@ const createYachts = async (req, res) => {
     passenger_capacity,
     description,
     town,
+    price,
   } = req.body
 
   const newYachts = new YachtsModel({
     image: imageUrl,
     town,
+    price,
     spec: {
       model,
       name,
