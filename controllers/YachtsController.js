@@ -3,7 +3,7 @@ const YachtsModel = require("../models/YachtsModel")
 
 const createYachts = async (req, res) => {
   const {
-    imageUrl,
+    imageUrls,
     model,
     name,
     manufacturer,
@@ -23,7 +23,7 @@ const createYachts = async (req, res) => {
   } = req.body
 
   const newYachts = new YachtsModel({
-    image: imageUrl,
+    image: imageUrls,
     town,
     price,
     spec: {
