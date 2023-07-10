@@ -66,9 +66,8 @@ const deleteTown = async (req, res) => {
   if (town == null) {
     res.json({ message: "Город не найден" }).status(400)
   } else {
-    await ServicesModel.findOneAndDelete({
+    await CateringModel.findOneAndDelete({
       town: town.name,
-      name: "Кейтеринг",
     })
 
     await ServicesModel.findOneAndDelete({
