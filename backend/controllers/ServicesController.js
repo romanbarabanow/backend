@@ -1,3 +1,4 @@
+const CateringModel = require("../models/CateringModel")
 const ServicesModel = require("../models/ServicesModel")
 
 const changeService = async (req, res) => {
@@ -14,6 +15,27 @@ const changeService = async (req, res) => {
   }
 }
 
+const changeCatering = async (req, res) => {
+  const { id, pages } = req.body
+
+  const isExist = await CateringModel.findOne({ _id: id })
+
+  if (isExist == null) {
+    res.json({ message: "Услуги не найдены" }).status(400)
+  } else {
+    await CateringModel.findOneAndUpdate({ _id: id }, { pages: pages })
+    res.json({ message: "Success" }).status(200)
+  }
+}
+
+const getCatering = async (req, res) => {
+  const { town } = req.query
+
+  const service = await CateringModel.findOne({ town })
+
+  res.json(service)
+}
+
 const getService = async (req, res) => {
   const { name, town } = req.query
 
@@ -25,4 +47,6 @@ const getService = async (req, res) => {
 module.exports = {
   changeService,
   getService,
+  changeCatering,
+  getCatering,
 }

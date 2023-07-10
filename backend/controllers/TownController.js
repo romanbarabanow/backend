@@ -1,4 +1,5 @@
 const AboutModel = require("../models/AboutModel")
+const CateringModel = require("../models/CateringModel")
 const ServicesModel = require("../models/ServicesModel")
 const TownModel = require("../models/TownModel")
 const YachtsModel = require("../models/YachtsModel")
@@ -18,7 +19,7 @@ const createTown = async (req, res) => {
       town: name,
     })
 
-    const newServiseOne = new ServicesModel({
+    const newServiseOne = new CateringModel({
       town: name,
       name: "Кейтеринг",
     })
@@ -113,6 +114,7 @@ const getAllInfo = async (req, res) => {
   } else {
     const about = await AboutModel.findOne({ town: town.name })
     const services = await ServicesModel.find({ town: town.name })
+    const catering = await CateringModel.findOne({ town: town.name })
     const yachtsArray = await YachtsModel.find({ town: town.name })
 
     const yachts = []
@@ -129,6 +131,7 @@ const getAllInfo = async (req, res) => {
         town,
         about,
         services,
+        catering,
       },
     })
   }
