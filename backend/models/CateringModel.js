@@ -6,4 +6,4 @@ const Services = new Schema({
   pages: { type: Array, default: [] },
 })
 
-module.exports = model("Services", Services)
+module.exports = model("Catering", Services)
