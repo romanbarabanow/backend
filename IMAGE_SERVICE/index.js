@@ -14,7 +14,7 @@ app.post("/img", (req, res) => {
   const date = Date.now();
   const type = file.name.split(".").pop();
   const fileName = date + "-postImg." + type;
-  const urlfile = `http://45.12.73.221:80/file?filename=${fileName}`;
+  const urlfile = `http://62.113.104.182:80/file?filename=${fileName}`;
   file.mv(`./files/${fileName}`, file);
   res
     .json({

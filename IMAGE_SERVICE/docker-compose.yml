@@ -6,6 +6,6 @@ services:
     restart: always
     build: ./
     ports:
-      - "4001:4001"
+      - "80:80"
     volumes:
       - .:/app
