@@ -69,7 +69,7 @@ const createYachts = async (req, res) => {
   } = req.body
 
   const newYachts = new YachtsModel({
-    image: [imageUrls],
+    image: imageUrls,
     town,
     price,
     spec: {
