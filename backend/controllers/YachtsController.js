@@ -1,7 +1,7 @@
 const fs = require("fs")
 const YachtsModel = require("../models/YachtsModel")
 
-const editTown = async (req, res) => {
+const editYacht = async (req, res) => {
   const {
     imageUrls,
     model,
@@ -174,5 +174,6 @@ module.exports = {
   getYachtsbyTown,
   deleteYachts,
   getYachtsbyId,
+  editYacht,
   yachtWithFilter,
 }
