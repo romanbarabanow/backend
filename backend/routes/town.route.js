@@ -7,6 +7,7 @@ const middleware = require("../middleware/auth.middleware")
 const router = Router()
 
 router.post("/town", middleware, TownController.createTown)
+router.post("/town/change", middleware, TownController.editTown)
 router.get("/town", TownController.getAllTowns)
 router.delete("/town", middleware, TownController.deleteTown)
 router.get("/all-info", TownController.getAllInfo)

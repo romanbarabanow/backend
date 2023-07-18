@@ -1,6 +1,52 @@
 const fs = require("fs")
 const YachtsModel = require("../models/YachtsModel")
 
+const editTown = async (req, res) => {
+  const {
+    imageUrls,
+    model,
+    name,
+    manufacturer,
+    clas,
+    shipyard,
+    year,
+    engine,
+    width,
+    length,
+    draught,
+    spead,
+    number_of_cabins,
+    passenger_capacity,
+    description,
+    id,
+    price,
+  } = req.body
+
+  const newYacht = await YachtsModel.findOneAndUpdate(
+    { _id: id },
+    {
+      imageUrls,
+      model,
+      name,
+      manufacturer,
+      clas,
+      shipyard,
+      year,
+      engine,
+      width,
+      length,
+      draught,
+      spead,
+      number_of_cabins,
+      passenger_capacity,
+      description,
+      price,
+    }
+  )
+
+  res.json(newYacht)
+}
+
 const createYachts = async (req, res) => {
   const {
     imageUrls,

@@ -3,7 +3,7 @@ const cors = require("cors")
 const mongoose = require("mongoose")
 
 mongoose
-  .connect("mongodb://45.12.75.171:27017/yachts", {
+  .connect("mongodb://database:27017/yachts", {
     useNewUrlParser: true,
   })
   .then(() => console.log("MongoDB Connected"))

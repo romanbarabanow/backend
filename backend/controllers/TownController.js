@@ -148,10 +148,23 @@ const getTownByName = async (req, res) => {
   }
 }
 
+const editTown = async (req, res) => {
+  const { id, name, country } = req.body
+
+  const data = await TownModel.findOneAndUpdate(
+    { _id: id },
+    { name, country },
+    { new: true }
+  )
+
+  res.json(data)
+}
+
 module.exports = {
   createTown,
   deleteTown,
   getAllTowns,
   getAllInfo,
   getTownByName,
+  editTown,
 }
